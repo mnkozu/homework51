@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Numbers from "./Numbers/Numbers";
 import './App.css';
 
 function App() {
+  const [numbers, setNumbers] = useState([5, 11, 16, 23, 32]);
+
+  const getRandom = () => {
+    return Math.floor(Math.random() * (37 - 5)) + 5;
+  };
+
+  const sortAndSet = () => {
+    const arrOfRandomNums:any = [];
+
+    for (let i = 0; i < 5; i++) {
+      const randomNumSave = getRandom();
+
+      if (!arrOfRandomNums.includes(randomNumSave)) {
+        arrOfRandomNums.push(randomNumSave);
+      } else {
+        arrOfRandomNums.push(getRandom());
+      }
+    }
+
+    arrOfRandomNums.sort((a:number, b:number) => a - b);
+
+    setNumbers(arrOfRandomNums);
+  };
+
+  const numChange = numbers.map((number, index) => {
+    return (
+      <Numbers
+        number={number}
+        key = {index}
+      />
+    );
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='numbers'>{numChange}</div>
+      <button onClick={sortAndSet} className='btn'>New numbers</button>
     </div>
   );
 }
-
 export default App;
