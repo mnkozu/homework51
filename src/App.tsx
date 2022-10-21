@@ -34,7 +34,7 @@ function App() {
         key = {index}
       />
     );
-  })
+  });
 
   return (
     <div className="App">
