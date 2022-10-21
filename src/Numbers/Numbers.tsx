@@ -1,4 +1,5 @@
 import React from 'react';
+import './Numbers.css';
 
 interface NumbersProps {
   number: number;

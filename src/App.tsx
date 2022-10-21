@@ -12,13 +12,13 @@ function App() {
   const sortAndSet = () => {
     const arrOfRandomNums:any = [];
 
-    for (let i = 0; i < 5; i++) {
+    while (arrOfRandomNums.length < 5) {
       const randomNumSave = getRandom();
 
       if (!arrOfRandomNums.includes(randomNumSave)) {
         arrOfRandomNums.push(randomNumSave);
       } else {
-        arrOfRandomNums.push(getRandom());
+        continue;
       }
     }
 

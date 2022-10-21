@@ -1,0 +1,16 @@
+.numbers {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.number {
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 6px;
+    padding: 6px;
+}
+
+.number p {
+    margin: 0;
+}
